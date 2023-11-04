@@ -13,8 +13,6 @@ services:
       POSTGRES_HOSTNAME: postgres
       POSTGRES_PASSWORD: 'jaC3R3GyYRrTC8gh'
       POSTGRES_USER: guacamole_user
-    volumes:
-      - ./user-mapping.xml:/etc/guacamole/user-mapping.xml
     depends_on:
       - guacd
       - postgres
@@ -43,10 +41,12 @@ services:
       - ./init:/docker-entrypoint-initdb.d:z
       - postgresql_data:/var/lib/postgresql/data:Z
 
-  rdesktop2:
+  rdesktop:
     build: .
     networks:
       - guacamole-net
+    volumes:
+      - ./app:/app
     environment:
       - PUID=1000
       - PGID=1000

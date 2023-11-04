@@ -14,4 +14,10 @@ RUN chown -R user2:user2 /home/user2
 RUN sed -i '/%sudo\s*ALL=(ALL:ALL) ALL/d' /etc/sudoers
 
 RUN sed -i 's/^Policy=Default/ListenAddress=UBDC/' /etc/xrdp/sesman.ini && \
-    sed -i 's/^AllowRootLogin=true/AllowRootLogin=false/' /etc/xrdp/sesman.ini \
+    sed -i 's/^AllowRootLogin=true/AllowRootLogin=false/' /etc/xrdp/sesman.ini
+
+
+RUN pacman -S python-pipx tk --noconfirm
+RUN pipx install virtualenv
+RUN cd /app && /root/.local/bin/virtualenv venv && source /app/venv/bin/activate && pip install tk numpy matplotlib pillow pandas
+
