@@ -20,3 +20,27 @@ docker compose up
 Guacamole
 RDP
 Openbox and ArchLinux
+
+
+# Windows RDP connection
+You can connect Docker containers to your virtual machine and set up RemoteApps, allowing you to convert Windows applications into web applications as well.
+```
+Protocol: RDP
+
+Hostname: your virtual machine ip
+
+Port: 3389
+
+Username: your account
+
+Password: your password
+
+Security Mode: NLA
+
+Domain: MicrosoftAccount
+
+Ignore Security Certificate: (checked)
+```
+
+## References
+https://www.youtube.com/watch?v=WhENXFkiOlI&t=3137s&pp=ygUOZHJhZ29uIHdpbmFwcHM%3D
